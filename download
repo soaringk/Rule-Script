@@ -1,4 +1,5 @@
 DOMAIN-SUFFIX,googleusercontent.com
+DOMAIN,dl.google.com
 DOMAIN-SUFFIX,github.com
 DOMAIN-SUFFIX,raw.githubusercontent.com
 DOMAIN,registry-1.docker.io
