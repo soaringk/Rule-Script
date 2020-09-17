@@ -34,10 +34,6 @@ DOMAIN-KEYWORD,wlmonitor
 DOMAIN-KEYWORD,zjtoolbar
 
 
-IP-CIDR,46.165.197.153/32,no-resolve
-IP-CIDR,46.165.197.231/32,no-resolve
-IP-CIDR,74.117.182.77/32,no-resolve
-IP-CIDR,78.140.131.214/32,no-resolve
 IP-CIDR,167.206.10.148/32,no-resolve
 
 
