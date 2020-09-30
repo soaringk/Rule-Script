@@ -1,0 +1,8 @@
+#!name=Change UA
+#!desc=Change the User Agnet for all request
+
+[Header Rewrite]
+https?://* header-replace User-Agent Mozilla/5.0 (Windows NT 10.0; rv:80.0) Gecko/20100101 Firefox/80.0
+
+[MITM]
+hostname = -*.apple.com, -*.icloud.com, -*.mzstatic.com, -*.crashlytics.com, *

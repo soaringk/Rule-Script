@@ -1,0 +1,5 @@
+# 额外的订阅规则
+# ios
+
+DOMAIN-SUFFIX,paypal.com
+DOMAIN-SUFFIX,feedly.com

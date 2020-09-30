@@ -1,0 +1,8 @@
+#!name=GetCookie
+#!desc=该模块适用于定时签到脚本的Cookie获取. 集成: 京东, 吾爱破解, 爱奇艺, 哔哩哔哩漫画, 百度贴吧, 您可以在使用后手动将其禁用，以免产生不必要的MITM.
+
+[MITM]
+hostname = %APPEND% www.sjlx.win
+
+[Script]
+旅行Cookie = type=http-request,pattern=https:\/\/www\.sjlx\.win\/user,script-path=script/sjlx.js
