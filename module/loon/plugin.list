@@ -1,7 +1,6 @@
 [Plugin]
 https://raw.githubusercontent.com/soaringk/Rule-Script/master/module/loon/CheckIn.plugin, tag=CheckIn, enabled=true
 https://raw.githubusercontent.com/soaringk/Rule-Script/master/module/loon/GetCookie.plugin, tag=GetCookie, enabled=true
-https://raw.githubusercontent.com/Tartarus2014/For-own-use/master/Loon/Plugin/Block/Advertising.plugin, tag=Advertising, enabled=true
-https://raw.githubusercontent.com/Tartarus2014/For-own-use/master/Loon/Plugin/Block/Bilibili.plugin, tag=Bilibili, enabled=true
-https://raw.githubusercontent.com/Tartarus2014/For-own-use/master/Loon/Plugin/Historical%20price.plugin, tag=price, enabled=true
-https://raw.githubusercontent.com/Tartarus2014/For-own-use/ac5876c51b884cdd08951a581275506cbe1f3a9f/Loon/Plugin/Q-Search.plugin, tag=Q-Search, enabled=false
+https://raw.githubusercontent.com/Tartarus2014/For-own-use/master/Loon/Plugin/Advertising.plugin, tag=Advertising, enabled=true
+https://raw.githubusercontent.com/Tartarus2014/For-own-use/master/Loon/Plugin/HKMTMedia.plugin, tag=Bilibili, enabled=true
+https://raw.githubusercontent.com/Tartarus2014/For-own-use/master/Loon/Plugin/Historical%20Price.plugin, tag=price, enabled=true
