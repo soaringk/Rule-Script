@@ -1,0 +1,9 @@
+#!name=Rules
+#!desc=ADD/Overwrite Some Rules (Surge module)
+
+[Rule]
+PROCESS-NAME,GoogleSoftwareUpdateAgent,REJECT
+DOMAIN-SUFFIX,t.paypal.com,REJECT
+DOMAIN-SUFFIX,leetcode-cn.com,REJECT
+DOMAIN-SUFFIX,paypal.com,🔰 节点选择
+DOMAIN-SUFFIX,feedly.com,🔰 节点选择

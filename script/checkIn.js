@@ -1,7 +1,5 @@
 /*
-XXX网站签到脚本
-
-代码参考自: https://raw.githubusercontent.com/NobyDa/Script/master/52pojie-DailyBonus/52pojie.js
+世界の旅行签到脚本
 
 更新时间: 2020.11.10
 脚本兼容: Surge, Loon, QuantumultX(未测试)
@@ -9,7 +7,7 @@ XXX网站签到脚本
 ************************
 QX, Surge, Loon说明：
 ************************
-手动登录 https://www.52pojie.cn 如通知成功获取cookie, 则可以使用此签到脚本.
+手动登录 https://www.sjlx.win 如通知成功获取cookie, 则可以使用此签到脚本.
 获取Cookie后, 请将Cookie脚本禁用并移除主机名, 以免产生不必要的MITM.
 脚本将在每天上午9点执行, 您可以修改执行时间.
 
@@ -19,7 +17,7 @@ Node.js说明:
 需自行安装"got"与"tough-cookie"模块. 例: npm install got tough-cookie -g
 
 抓取Cookie说明:
-浏览器打开 https://www.52pojie.cn/home.php 登录账号后, 开启抓包软件并刷新页面.
+浏览器打开 https://www.sjlx.win/user 登录账号后, 开启抓包软件并刷新页面.
 抓取该URL请求头下的Cookie字段, 填入以下CookieWA的单引号内即可. */
 
 const CookieWA = '';
@@ -29,19 +27,19 @@ Surge 4.2.0+ 脚本配置:
 ************************
 
 [Script]
-吾爱签到 = type=cron,cronexp=0 9 * * *,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/52pojie-DailyBonus/52pojie.js
+旅行签到 = type=cron,cronexp=0 9 * * *,script-path=script/sjlx.js
 
-吾爱获取Cookie = type=http-request,pattern=https:\/\/www\.52pojie\.cn\/home\.php\?,script-path=https://raw.githubusercontent.com/NobyDa/Script/master/52pojie-DailyBonus/52pojie.js
+旅行Cookie = type=http-request,pattern=https:\/\/www\.sjlx\.win\/user,script-path=script/sjlx.js
 
 [MITM]
-hostname= www.52pojie.cn
+hostname = %APPEND% www.sjlx.win
 
 ************************
 QuantumultX 远程脚本配置:
 ************************
 
 [task_local]
-# 吾爱签到
+# 签到
 0 9 * * * https://raw.githubusercontent.com/NobyDa/Script/master/52pojie-DailyBonus/52pojie.js
 
 [rewrite_local]
@@ -49,21 +47,21 @@ QuantumultX 远程脚本配置:
 https:\/\/www\.52pojie\.cn\/home\.php\? url script-request-header https://raw.githubusercontent.com/NobyDa/Script/master/52pojie-DailyBonus/52pojie.js
 
 [mitm]
-hostname= www.52pojie.cn
+hostname= www.sjlx.win
 
 ************************
 Loon 2.1.0+ 脚本配置:
 ************************
 
 [Script]
-# 吾爱签到
-cron "0 9 * * *" script-path=https://raw.githubusercontent.com/NobyDa/Script/master/52pojie-DailyBonus/52pojie.js
+# 签到
+cron "0 9 * * *" script-path=https://raw.githubusercontent.com/soaringk/Rule-Script/master/script/checkIn.js
 
 # 获取Cookie
-http-request https:\/\/www\.52pojie\.cn\/home\.php\? script-path=https://raw.githubusercontent.com/NobyDa/Script/master/52pojie-DailyBonus/52pojie.js
+http-request pattern=https:\/\/www\.sjlx\.win\/user script-path=https://raw.githubusercontent.com/soaringk/Rule-Script/master/script/checkIn.js
 
 [Mitm]
-hostname= www.52pojie.cn
+hostname= www.sjlx.win
 */
 
 var $ = new Env('');
@@ -76,24 +74,27 @@ if (typeof $request != "undefined") {
 
 function checkin() {
   $.post({
-    url: 'https://www.example.com/checkin',
+    url: 'https://www.sjlx.win/user/checkin',
     headers: {
       Cookie: CookieWA || $.getdata("CookieWA"),
     }
   }, function (error, response, data) {
     if (error) {
       $.log(error);
-      $.msg("XXX", "签到请求失败 ‼️‼️", error)
+      $.msg("世界の旅行", "签到请求失败 ‼️‼️", error)
     } else {
-      var res = JSON.parse(data)
+      try {
+        var res = JSON.parse(data)
+      } catch (err) {
+        console.log("JSON 解析失败")
+        $.msg("世界の旅行", "", "签到失败, Cookie失效 ‼️‼️")
+      }
       if (res['ret'] == 1) {
-        $.msg("XXX网站", "", date.getMonth() + 1 + "月" + date.getDate() + "日, 签到成功 🎉")
+        $.msg("世界の旅行", "", date.getMonth() + 1 + "月" + date.getDate() + "日, 签到成功 🎉")
       } else if (res['ret'] == 0) {
-        $.msg("XXX网站", "", date.getMonth() + 1 + "月" + date.getDate() + "日, 已签过 ⚠️")
-      } else if (response.status == 302) {
-        $.msg("XXX网站", "", "签到失败, Cookie失效 ‼️‼️")
+        $.msg("世界の旅行", "", date.getMonth() + 1 + "月" + date.getDate() + "日, 已签过 ⚠️")
       } else {
-        $.msg("XXX网站", "", "脚本待更新 ‼️‼️")
+        $.msg("世界の旅行", "", "脚本待更新 ‼️‼️")
       }
     }
     $.done();
@@ -102,8 +103,8 @@ function checkin() {
 
 function GetCookie() {
   try {
-    if ($request.headers && $request.url.match(/www\.example\.com/)) {
-      var CookieName = "XXX网站";
+    if ($request.headers && $request.url.match(/www\.sjlx\.win/)) {
+      var CookieName = "世界の旅行";
       var CookieKey = "CookieWA";
       var CookieValue = $request.headers['Cookie'];
       if ($.getdata(CookieKey)) {
