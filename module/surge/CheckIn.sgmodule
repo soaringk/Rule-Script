@@ -1,8 +1,0 @@
-#!name=CheckIn
-#!desc=Get Cookie and Check in, including sjlx.
-
-[MITM]
-hostname = %APPEND% www.sjlx.win
-
-[Script]
-旅行签到 = type=cron,cronexp=0 18 * * *,script-path=script/sjlx.js

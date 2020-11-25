@@ -1,8 +1,0 @@
-# 定时签到任务
-# ios
-
-[Script]
-cron "0 18 * * *" script-path=https://raw.githubusercontent.com/soaringk/Rule-Script/master/script/checkIn.jsx
-
-[Mitm]
-hostname= www.sjlx.win
