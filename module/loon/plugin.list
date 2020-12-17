@@ -1,4 +1,5 @@
 [Plugin]
-https://raw.githubusercontent.com/soaringk/Rule-Script/master/module/loon/zhihu%20web.plugin, tag=zhihu, enabled=true
+https://raw.githubusercontent.com/Tartarus2014/For-own-use/master/Loon/Plugin/ZhiHu.plugin, tag=zhihu, enabled=false
+https://raw.githubusercontent.com/soaringk/Rule-Script/master/module/loon/zhihu%20web.plugin, tag=zhihu web, enabled=true
 https://raw.githubusercontent.com/Tartarus2014/For-own-use/master/Loon/Plugin/HKMTMedia.plugin, tag=Bilibili, enabled=true
-https://raw.githubusercontent.com/Tartarus2014/For-own-use/master/Loon/Plugin/Historical%20Price.plugin, tag=price, enabled=true
+https://raw.githubusercontent.com/Tartarus2014/For-own-use/master/Loon/Plugin/Script.plugin, tag=price, enabled=true
