@@ -1,4 +1,4 @@
-# 额外的订阅规则
+# 额外的订阅规则，订阅地址: https://raw.githubusercontent.com/soaringk/Rule-Script/master/module/loon/Rules.list, policy=🔰 节点选择, enabled=true
 # ios
 
 DOMAIN-SUFFIX,paypal.com
