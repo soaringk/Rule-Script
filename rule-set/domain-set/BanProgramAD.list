@@ -475,8 +475,7 @@
 
 # Kugou
 .ads.service.kugou.com
-.bssdl.kugou.com
-.bssdlbig.kugou.com
+.adsfile.bssdlbig.kugou.com
 .d.kugou.com
 .downmobile.kugou.com
 .gad.kugou.com
